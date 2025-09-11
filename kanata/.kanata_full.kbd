@@ -1,0 +1,129 @@
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defvar
+  ;; Note: consider using different time values for your different fingers.
+  ;; For example, your pinkies might be slower to release keys and index
+  ;; fingers faster.
+  tap-time 200
+  hold-time 200 
+  hold-time-slow 300 
+)
+
+(defalias
+  mse (layer-while-held mouse)
+)
+
+(defalias
+  ;; mouse or escape
+  moe (tap-hold 200 200 spc @mse)
+)
+
+(defalias
+  fst (movemouse-speed 200)
+  slw (movemouse-speed 50)
+  vsl (movemouse-speed 25)
+
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+
+  ms↑ (movemouse-up 4 4)
+  ms← (movemouse-left 4 4)
+  ms↓ (movemouse-down 4 4)
+  ms→ (movemouse-right 4 4)
+
+  ma↑ (movemouse-accel-up 1 1000 1 5)
+  ma← (movemouse-accel-left 1 1000 1 5)
+  ma↓ (movemouse-accel-down 1 1000 1 5)
+  ma→ (movemouse-accel-right 1 1000 1 5)
+)
+
+(defalias
+  cec (tap-hold $tap-time $hold-time esc lctl)
+  ;;sym (tap-hold $tap-time $hold-time a (layer-toggle symbols))
+  ;;num (tap-hold $tap-time $hold-time s (layer-toggle numbers))
+  l_sym (layer-toggle symbols)
+  l_num (layer-toggle numbers)
+  l_chars (layer-toggle chars)
+  l_anum (layer-toggle a-numbers)
+  l_ssym (layer-toggle s-symbols)
+  a (tap-hold $tap-time $hold-time a @l_sym)
+  s (tap-hold $tap-time $hold-time s @l_num)
+  d (tap-hold $tap-time $hold-time d @l_chars)
+  f (tap-hold $tap-time $hold-time f @l_anum)
+  ; (tap-hold $tap-time $hold-time ; lctl)
+  ' (tap-hold $tap-time $hold-time ' rsft)
+  tab (tap-hold $tap-time $hold-time tab S-tab)
+)
+
+(deflayer default
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  @tab q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @cec @a   @s   @d   @f   g    h    j    k    l    @;   @'   ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           @moe           ralt rmet rctl
+)
+
+(deflayer symbols
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    home end  _    _    _    _    _
+  _    _    lsft del  bspc _    left down up   rght _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer chars
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    [    ]    _    _    _    _    _
+  _    _    lsft del  bspc _    grave -    =    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer s-symbols
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    del  _    _    S-left S-down S-up   S-rght _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer numbers
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    7    8    9    _    _    _    _
+  _    lsft _    del  bspc _    0    4    5    6    _    _    _
+  _    _    _    _    _    _    1    2    3    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer a-numbers
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    7    8    9    _    _    _    _
+  _    lsft _    del  bspc _    0    4    5    6    _    _    _
+  _    _    _    _    _    _    A-F1 A-F2 S-Insert _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer mouse
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    @vsl @fst _    _    @mwl @mwd @mwu @mwr _    _    _    _
+  _    _    mlft mmid mrgt _    @ms← @ms↓ @ms↑ @ms→ _    _    _
+  _    _    _    _    _    _    A-F1 _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
