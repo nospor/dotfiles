@@ -61,13 +61,14 @@
   f (tap-hold $tap-time $hold-time f @l_anum)
   ; (tap-hold $tap-time $hold-time ; lctl)
   ' (tap-hold $tap-time $hold-time ' rsft)
+  w (tap-hold $tap-time $hold-time w lmet)
   tab (tap-hold $tap-time $hold-time tab S-tab)
 )
 
 (deflayer default
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  @tab q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @tab q    @w   e    r    t    y    u    i    o    p    [    ]    \
   @cec @a   @s   @d   @f   g    h    j    k    l    @;   @'   ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           @moe           ralt rmet rctl
@@ -113,7 +114,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    7    8    9    _    _    _    _
-  _    lsft _    del  bspc _    0    4    5    6    _    _    _
+  _    lsft _    del  bspc _    0    5    A-F5 6    _    _    _
   _    _    _    _    _    _    A-F1 A-F2 S-Insert _    _    _
   _    _    _              _              _    _    _
 )

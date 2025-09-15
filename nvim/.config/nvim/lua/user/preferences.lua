@@ -87,6 +87,14 @@ vim.keymap.set("n", "<Tab>", function()
     vim.cmd("bnext")
 end, { silent = true })
 
+-- highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({ timeout = 300 })
+    end,
+})
+
 vim.keymap.set("n", "<S-Tab>", function()
     if vim.bo.modifiable and not vim.bo.readonly and vim.bo.modified then
         vim.cmd("write")
