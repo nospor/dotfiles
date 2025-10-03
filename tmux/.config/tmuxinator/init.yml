@@ -1,0 +1,10 @@
+name: init
+root: ~/
+
+windows:
+  - init:
+      layout: main-horizontal
+      panes:
+        - sudo openvpn /home/robertn/openvpn/robertn.opvpn
+        - tmux send-keys -t init:init.1 "sudo cp /etc/mediatel.resolv.conf /etc/resolv.conf"
+

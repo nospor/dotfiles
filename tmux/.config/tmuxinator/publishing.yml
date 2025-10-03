@@ -1,0 +1,16 @@
+name: publishing
+root: ~/projects/vag1/html/publishing
+startup_window: publishing
+# startup_pane: 1   # pane index, starting from 0
+
+windows:
+  - mediatel:
+      root: ~/projects/vag1/html/mediatel
+      panes:
+        - ds start
+  - publishing:
+      layout: main-horizontal
+      panes:
+        - vim
+        - ds start
+
