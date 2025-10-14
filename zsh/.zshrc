@@ -13,7 +13,7 @@ export ZSH="/home/robertn/.oh-my-zsh"
 # this must be commented out for tmux to work properly
 #export TERM="xterm-256color"
 
-export PATH="/home/linuxbrew/.linuxbrew/bin/:$PATH"       
+export PATH="/home/linuxbrew/.linuxbrew/bin/:$HOME/.fzf/bin:$PATH:/opt/nvim-linux-x86_64/bin"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
