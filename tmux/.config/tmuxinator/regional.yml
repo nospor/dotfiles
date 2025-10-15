@@ -1,0 +1,17 @@
+name: regional
+root: ~/projects/vag1/html/mediatel/vendor/mediatel/mapping
+startup_window: regional
+# startup_pane: 1   # pane index, starting from 0
+
+windows:
+  - mediatel:
+      root: ~/projects/vag1/html/mediatel
+      panes:
+        - ds start
+
+  - regional:
+      layout: ef2b,188x43,0,0[188x33,0,0,30,188x9,0,34{94x9,0,34,31,93x9,95,34,32}] # :list-windows to fetch layout
+      panes:
+        - vim
+        - mapwatch
+        - 
