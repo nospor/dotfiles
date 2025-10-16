@@ -195,7 +195,7 @@ alias dotcfg='git --git-dir=$HOME/.dotcfg/ --work-tree=$HOME'
 alias ll='eza -alh'
 alias tree='eza --tree --long'
 
-alias cat='bat'
+#alias cat='bat'
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
